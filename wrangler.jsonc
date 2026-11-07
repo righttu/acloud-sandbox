@@ -1,0 +1,13 @@
+{
+ "$schema": "node_modules/wrangler/config-schema.json",
+ "name": "acloud-sandbox", "main": "src/index.ts",
+ "compatibility_date": "2026-11-06", "compatibility_flags": ["nodejs_compat"],
+ "workers_dev": true,
+ "routes": [{"pattern": "acloud-sandbox.righttu.uk", "custom_domain": true}],
+ "observability": {"enabled": true},
+ "vars": {"MCP_URL": "https://acloud-mcp-s.righttu.uk/mcp"},
+ "r2_buckets": [{"binding": "BACKUPS", "bucket_name": "acloud-sandbox-backups","preview_bucket_name": "acloud-sandbox-backups"}],
+ "containers": [{"class_name": "AcloudSandbox", "scheduling_policy": "durable_object", "images": {"acloud-python": {"dockerfile": "./Dockerfile"}}}],
+ "durable_objects": {"bindings": [{"name": "SANDBOX", "class_name": "AcloudSandbox"}]},
+ "exports": {"AcloudSandbox": {"type": "durable-object", "storage": "sqlite"}}
+}

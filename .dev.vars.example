@@ -1,0 +1,3 @@
+ACLOUD_SANDBOX_TOKEN=请换成随机长令牌
+# 可选；MCP_URL 在 wrangler 中配置，不要将密钥放进 URL
+ACLOUD_MCP_TOKEN=

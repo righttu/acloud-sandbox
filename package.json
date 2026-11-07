@@ -1,0 +1,7 @@
+{
+  "name": "acloud-sandbox", "version": "1.0.0", "private": true, "type": "module",
+  "scripts": {"check": "wrangler types && tsc --noEmit", "dryrun": "wrangler deploy --dry-run --outdir .dryrun", "deploy": "wrangler deploy", "dev": "wrangler dev"},
+  "dependencies": {"@cloudflare/sandbox": "^1.0.3"},
+  "devDependencies": {"wrangler": "^4.158.0", "typescript": "^7.0.2", "@cloudflare/workers-types": "^5.20261106.1"},
+  "cloudflare": {"bindings": {"ACLOUD_SANDBOX_TOKEN": {"description": "分析和备份接口的共享密钥，请设置随机长令牌"}, "ACLOUD_MCP_TOKEN": {"description": "可选：远帆 MCP 服务的机器令牌"}, "MCP_URL": {"description": "可选：远帆 MCP Streamable HTTP 地址，留空使用少量示例工单"}}}
+}
